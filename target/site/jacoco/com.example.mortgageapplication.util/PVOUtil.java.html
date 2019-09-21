@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PVOUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mortgageapplication</a> &gt; <a href="index.source.html" class="el_package">com.example.mortgageapplication.util</a> &gt; <span class="el_source">PVOUtil.java</span></div><h1>PVOUtil.java</h1><pre class="source lang-java linenums">package com.example.mortgageapplication.util;
+import com.example.mortgageapplication.entity.User;
+import com.example.mortgageapplication.pvo.UserPVO;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PVOUtil {
+<span class="nc" id="L8">    static User user = new User();</span>
+    private PVOUtil() {
+    }
+
+    public static final User createNew(UserPVO userPVO ){
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        if (userPVO == null) {</span>
+<span class="nc" id="L14">            return null;</span>
+        }
+<span class="nc" id="L16">        user.setFirstName(userPVO.getFirstName());</span>
+<span class="nc" id="L17">        user.setLastName(userPVO.getLastName());</span>
+<span class="nc" id="L18">        user.setDateOfBirth(userPVO.getDateOfBirth());</span>
+<span class="nc" id="L19">        user.setGender(userPVO.getGender());</span>
+<span class="nc" id="L20">        user.setPhoneNumber(userPVO.getPhoneNumber());</span>
+<span class="nc" id="L21">        user.setEmail(userPVO.getEmail());</span>
+<span class="nc" id="L22">        user.setPropertyType(userPVO.getPropertyType());</span>
+<span class="nc" id="L23">        user.setPropertyValue(userPVO.getPropertyValue());</span>
+<span class="nc" id="L24">        user.setAddress(userPVO.getAddress());</span>
+<span class="nc" id="L25">        return user;</span>
+    }
+
+
+    public static Double getPhoneNumber() {
+<span class="nc" id="L30">      return  user.getPhoneNumber();</span>
+    }
+
+    public  static final List&lt;Double&gt; calculator(Double principalAmount) {
+<span class="nc" id="L34">       Double rateOfInterest=10d;</span>
+<span class="nc" id="L35">        Double tenure=20d;</span>
+<span class="nc" id="L36">        rateOfInterest=rateOfInterest/(12*100);</span>
+<span class="nc" id="L37">        tenure=tenure*12;</span>
+<span class="nc" id="L38">        double emi= (principalAmount*rateOfInterest*Math.pow(1+rateOfInterest,tenure))/(Math.pow(1+rateOfInterest,tenure)-1);</span>
+<span class="nc" id="L39">        ArrayList&lt;Double&gt; loanDetails=new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L40">        loanDetails.add(rateOfInterest);</span>
+<span class="nc" id="L41">        loanDetails.add(tenure);</span>
+<span class="nc" id="L42">        loanDetails.add(emi);</span>
+<span class="nc" id="L43">        loanDetails.add(principalAmount);</span>
+<span class="nc" id="L44">        loanDetails.add(PVOUtil.getPhoneNumber());</span>
+<span class="nc" id="L45">        return loanDetails;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
